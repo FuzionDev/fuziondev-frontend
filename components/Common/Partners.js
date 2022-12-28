@@ -49,7 +49,7 @@ const PartnersTwo = () => {
               <a href={singleData.attributes.websiteLink} target="_blank">
                 <img
                   src={singleData.attributes.logo.data.attributes.url}
-                  alt="Image"
+                  alt="image"
                 />
               </a>
               {singleData.attributes.name && (
