@@ -11,7 +11,7 @@ import Footer from "../components/_App/Footer";
 import Navbar from "../components/_App/Navbar";
 import Testimonials from "../components/Common/Testimonials";
 import TeamMember from "../components/Common/TeamMember";
-import Services from "../components/Home/Services";
+import Services from "../components/Services/Services";
 
 const Index = () => {
   return (
