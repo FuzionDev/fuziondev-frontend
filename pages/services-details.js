@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from "../components/_App/Navbar";
 import RelatedServices from "../components/Services/RelatedServices";
-import ServiceSidebar from "../components/Services/ServiceSidebar";
 import Footer from "../components/_App/Footer";
 
 const ServicesDetails = () => {
@@ -74,10 +73,6 @@ const ServicesDetails = () => {
 
                 <RelatedServices />
               </div>
-            </div>
-
-            <div className="col-lg-4">
-              <ServiceSidebar />
             </div>
           </div>
         </div>
