@@ -64,5 +64,5 @@ out
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+
 .vercel
