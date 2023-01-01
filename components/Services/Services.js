@@ -1,20 +1,22 @@
 import React from "react";
-import Link from "next/link";
+
 import ServiceCard from "../Cards/ServiceCard";
+import useFetch from "../hooks/useFetch";
 
 const Services = () => {
+  const { loading, error, data } = useFetch(
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/the-Services?populate=*`
+  );
+
+  if (!data) return <p>Loading</p>;
+  if (error) return <p>Error :(</p>;
   return (
     <div className="services-area pb-70">
       <div className="container">
-        <div className="section-title">
-          <span>Cyber Security Services</span>
-          <h2>
-            You Can Protect Your Organization’s Cybersecurity By Services Us
-          </h2>
-        </div>
-
         <div className="row">
-          <ServiceCard />
+          {data?.map((singleData) => (
+            <ServiceCard singleData={singleData} />
+          ))}
         </div>
       </div>
     </div>

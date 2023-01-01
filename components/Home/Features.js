@@ -2,6 +2,7 @@ import React from "react";
 import dynamic from "next/dynamic";
 const OwlCarousel = dynamic(import("react-owl-carousel3"));
 import FeatureCard from "../Cards/FeatureCard";
+import useFetch from ".././hooks/useFetch";
 
 const Features = () => {
   const options = {
@@ -30,6 +31,11 @@ const Features = () => {
       },
     },
   };
+  const { loading, error, data } = useFetch(
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/features?populate=*`
+  );
+  if (!data) return <p>Loading</p>;
+  if (error) return <p>Error :(</p>;
 
   return (
     <div className="feature-area feature-area-three">
@@ -39,7 +45,9 @@ const Features = () => {
             className="partner-slide owl-carousel owl-theme"
             {...options}
           >
-            <FeatureCard />
+            {data?.map((singleData) => (
+              <FeatureCard singleData={singleData} />
+            ))}
           </OwlCarousel>
         </div>
       </div>

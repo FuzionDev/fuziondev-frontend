@@ -1,28 +1,34 @@
 import React from "react";
 import Link from "next/link";
 
-const ServiceCard = () => {
+const ServiceCard = ({ singleData }) => {
+  console.log(singleData);
   return (
     <div className="col-lg-3 col-sm-6">
       <div className="single-services">
         <div className="services-img">
-          <Link href="/services-details">
-            <a>
-              <img src="/images/services/services-1.jpg" alt="Image" />
-            </a>
-          </Link>
+          <img
+            src={singleData.attributes.image.data.attributes.url}
+            alt="Image"
+          />
         </div>
         <div className="services-content">
           <h3>
-            <Link href="/services-details">
-              <a>Website Scanning</a>
+            <Link
+              href={`/allServices/${singleData.id}-${singleData.attributes.Slug}`}
+            >
+              <a>{singleData.attributes.title}</a>
             </Link>
           </h3>
           <div className="content">
-            <p>
-              Lorem ipsum dolor sit amet, con sectetur adipiscing elit sed do.
-            </p>
-            <Link href="/services-details">
+            <Link
+              href={`/allServices/${singleData.id}-${singleData.attributes.Slug}`}
+            >
+              <a>{singleData.attributes.smallDetail}</a>
+            </Link>
+            <Link
+              href={`/allServices/${singleData.id}-${singleData.attributes.Slug}`}
+            >
               <a className="read-more">
                 Read More <i className="flaticon-right-arrow"></i>
               </a>
