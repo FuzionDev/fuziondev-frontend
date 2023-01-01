@@ -1,8 +1,8 @@
 import React from "react";
 import Navbar from "../components/_App/Navbar";
 import AboutUsContent from "../components/AboutUs/AboutUsContent";
-import OurChallenges from "../components/Common/OurChallenges";
-import Protects from "../components/AboutUs/Protects";
+import Services from "../components/Services/Services";
+
 import Testimonials from "../components/Common/Testimonials";
 import Partners from "../components/Common/Partners";
 import Footer from "../components/_App/Footer";
@@ -16,9 +16,7 @@ const AboutUs = () => {
         <AboutUsContent />
       </div>
 
-      <OurChallenges />
-
-      <Protects />
+      <Services heading />
 
       <Testimonials />
 

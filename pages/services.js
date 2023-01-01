@@ -10,13 +10,8 @@ const ServicesStyleOne = () => {
       <Navbar />
 
       <Features />
-      <div className="section-title">
-        <span>Cyber Security Services</span>
-        <h2>
-          You Can Protect Your Organization’s Cybersecurity By Services Us
-        </h2>
-      </div>
-      <Services />
+
+      <Services heading />
 
       <Footer />
     </React.Fragment>
