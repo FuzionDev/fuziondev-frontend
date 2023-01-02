@@ -7,6 +7,11 @@ const TeamMemberCard = ({ singleData }) => {
         <img
           src={singleData.attributes.ProfilePic.data.attributes.url}
           alt="Image"
+          style={{
+            height: "25rem",
+            width: "100%",
+            objectFit: "cover",
+          }}
         />
 
         <div className="team-content">

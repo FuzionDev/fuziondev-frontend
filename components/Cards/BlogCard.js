@@ -10,13 +10,14 @@ const BlogCard = ({ singleData }) => {
             <img
               src={singleData.attributes.FeaturedImage.data.attributes.url}
               alt="Image"
+              style={{ height: "25rem", objectFit: "cover" }}
             />
           </a>
         </Link>
         <div className="single-blog-content">
           <span>{singleData.attributes.Category}</span>
 
-          <h3>
+          <h3 style={{ height: "7rem" }}>
             <Link
               href={`/blogs/${singleData.id}-${singleData.attributes.Slug}`}
             >

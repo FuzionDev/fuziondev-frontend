@@ -50,6 +50,10 @@ const PartnersTwo = () => {
                 <img
                   src={singleData.attributes.logo.data.attributes.url}
                   alt="image"
+                  style={{
+                    maxHeight: "120px",
+                    objectFit: "contain",
+                  }}
                 />
               </a>
               {singleData.attributes.name && (
