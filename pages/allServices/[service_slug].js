@@ -31,14 +31,18 @@ const singlepost = ({ service_slug }) => {
                         />
                       </div>
                       <h2>{data.attributes.title}</h2>
-                      <p>{data.attributes.moreDetail}</p>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: data.attributes.detail,
+                        }}
+                      ></p>
                     </div>
                   )}
                 </div>
-                <h1>Other Services Provided are</h1>
-                <Services />
               </div>
             </div>
+            <h1>Other Services Provided are</h1>
+            <Services id={data.id} />
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@ import React from "react";
 import ServiceCard from "../Cards/ServiceCard";
 import useFetch from "../hooks/useFetch";
 
-const Services = ({ heading }) => {
+const Services = ({ heading, id }) => {
   const { loading, error, data } = useFetch(
     `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/the-Services?populate=*`
   );
@@ -22,9 +22,13 @@ const Services = ({ heading }) => {
           </div>
         )}
         <div className="row">
-          {data?.map((singleData) => (
-            <ServiceCard singleData={singleData} />
-          ))}
+          {id
+            ? data
+                ?.filter((singleData) => singleData.id !== id)
+                .map((singleData) => <ServiceCard singleData={singleData} />)
+            : data?.map((singleData) => (
+                <ServiceCard singleData={singleData} />
+              ))}
         </div>
       </div>
     </div>

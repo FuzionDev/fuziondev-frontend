@@ -24,7 +24,16 @@ const ServiceCard = ({ singleData }) => {
             <Link
               href={`/allServices/${singleData.id}-${singleData.attributes.Slug}`}
             >
-              <a>{singleData.attributes.smallDetail}</a>
+              <a>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: singleData.attributes.detail
+                      .split(" ")
+                      .slice(0, 10)
+                      .join(" "),
+                  }}
+                ></div>
+              </a>
             </Link>
             <Link
               href={`/allServices/${singleData.id}-${singleData.attributes.Slug}`}
