@@ -2,12 +2,12 @@ import React from "react";
 import Navbar from "../../components/_App/Navbar";
 import Footer from "../../components/_App/Footer";
 import useFetch from "../../components/hooks/useFetch";
-import Services from "../../components/Services/Services";
+import Features from "../../components/Home/Features";
 
-const singlepost = ({ service_slug }) => {
+const singlepost = ({ feature_slug }) => {
   const { loading, error, data } = useFetch(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/the-Services/${
-      service_slug.split("-")[0]
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/features/${
+      feature_slug.split("-")[0]
     }?populate=*`
   );
   if (!data) return <div>Loading..</div>;
@@ -24,16 +24,10 @@ const singlepost = ({ service_slug }) => {
                 <div>
                   {data && (
                     <div className="services-content">
-                      <div className="services-details-one">
-                        <img
-                          src={data.attributes.image.data.attributes.url}
-                          alt="Image"
-                        />
-                      </div>
                       <h2>{data.attributes.title}</h2>
                       <p
                         dangerouslySetInnerHTML={{
-                          __html: data.attributes.detail,
+                          __html: data.attributes.moreDetail,
                         }}
                       ></p>
                     </div>
@@ -42,7 +36,7 @@ const singlepost = ({ service_slug }) => {
               </div>
             </div>
             <h1>Other Services Provided are</h1>
-            <Services id={data.id} />
+            <Features id={data.id} />
           </div>
         </div>
       </div>
@@ -53,9 +47,9 @@ const singlepost = ({ service_slug }) => {
 };
 
 export const getServerSideProps = async ({ params }) => {
-  const service_slug = params.service_slug;
+  const feature_slug = params.feature_slug;
   return {
-    props: { service_slug },
+    props: { feature_slug },
   };
 };
 

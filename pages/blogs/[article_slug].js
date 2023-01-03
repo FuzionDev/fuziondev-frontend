@@ -3,10 +3,10 @@ import Navbar from "../../components/_App/Navbar";
 import Footer from "../../components/_App/Footer";
 import useFetch from "../../components/hooks/useFetch";
 
-const singlepost = ({ article_slug }) => {
+const singlepost = ({ feature_slug }) => {
   const { loading, error, data } = useFetch(
     `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs/${
-      article_slug.split("-")[0]
+      feature_slug.split("-")[0]
     }?populate=*`
   );
   if (!data) return <div>Loading..</div>;
@@ -77,9 +77,9 @@ const singlepost = ({ article_slug }) => {
 };
 
 export const getServerSideProps = async ({ params }) => {
-  const article_slug = params.article_slug;
+  const feature_slug = params.feature_slug;
   return {
-    props: { article_slug },
+    props: { feature_slug },
   };
 };
 

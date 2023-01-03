@@ -4,7 +4,7 @@ const OwlCarousel = dynamic(import("react-owl-carousel3"));
 import FeatureCard from "../Cards/FeatureCard";
 import useFetch from ".././hooks/useFetch";
 
-const Features = () => {
+const Features = ({ id }) => {
   const options = {
     loop: true,
     margin: 30,
@@ -45,9 +45,13 @@ const Features = () => {
             className="partner-slide owl-carousel owl-theme"
             {...options}
           >
-            {data?.map((singleData) => (
-              <FeatureCard singleData={singleData} />
-            ))}
+            {id
+              ? data
+                  ?.filter((singleData) => singleData.id !== id)
+                  .map((singleData) => <FeatureCard singleData={singleData} />)
+              : data?.map((singleData) => (
+                  <FeatureCard singleData={singleData} />
+                ))}
           </OwlCarousel>
         </div>
       </div>

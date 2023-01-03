@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 
 const ServiceCard = ({ singleData }) => {
   console.log(singleData);
@@ -7,41 +6,33 @@ const ServiceCard = ({ singleData }) => {
     <div className="col-lg-3 col-sm-6">
       <div className="single-services">
         <div className="services-img">
-          <img
-            src={singleData.attributes.image.data.attributes.url}
-            alt="Image"
-          />
+          <img src="images\services\services-7.jpg" alt="Image" />
         </div>
         <div className="services-content">
           <h3>
-            <Link
-              href={`/allServices/${singleData.id}-${singleData.attributes.Slug}`}
-            >
-              <a>{singleData.attributes.title}</a>
-            </Link>
+            <a href={singleData.attributes.link} target="_blank">
+              {singleData.attributes.title}
+            </a>
           </h3>
           <div className="content">
-            <Link
-              href={`/allServices/${singleData.id}-${singleData.attributes.Slug}`}
+            <a href={singleData.attributes.link} target="_blank">
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: singleData.attributes.detail
+                    .split(" ")
+                    .slice(0, 10)
+                    .join(" "),
+                }}
+              ></div>
+            </a>
+
+            <a
+              className="read-more"
+              href={singleData.attributes.link}
+              target="_blank"
             >
-              <a>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: singleData.attributes.detail
-                      .split(" ")
-                      .slice(0, 10)
-                      .join(" "),
-                  }}
-                ></div>
-              </a>
-            </Link>
-            <Link
-              href={`/allServices/${singleData.id}-${singleData.attributes.Slug}`}
-            >
-              <a className="read-more">
-                Read More <i className="flaticon-right-arrow"></i>
-              </a>
-            </Link>
+              Go to Website <i className="flaticon-right-arrow"></i>
+            </a>
           </div>
         </div>
       </div>
