@@ -10,6 +10,7 @@ const Blog = () => {
   );
   if (!data) return <p>Loading</p>;
   if (error) return <p>Error :(</p>;
+  console.log(data);
   return (
     <React.Fragment>
       <Navbar />
