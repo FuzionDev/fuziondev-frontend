@@ -13,7 +13,7 @@ const AboutUs = () => {
       <Navbar />
 
       <div className="pt-100 pb-70">
-        <AboutUsContent />
+        <AboutUsContent heading />
       </div>
 
       <Services heading />

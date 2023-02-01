@@ -4,7 +4,7 @@ import Footer from "../components/_App/Footer";
 import useFetch from ".././components/hooks/useFetch";
 import BlogCard from "../components/Cards/BlogCard";
 
-const Blog = () => {
+const Blog = (heading) => {
   const { loading, error, data } = useFetch(
     `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*`
   );
@@ -16,6 +16,13 @@ const Blog = () => {
       <Navbar />
 
       <div className="blog-column-two-area ptb-100">
+        {heading && (
+          <div className="section-title mt-4">
+            <h2>
+              You Can Protect Your Organization’s Cybersecurity By Services Us
+            </h2>
+          </div>
+        )}
         <div className="container">
           <div className="row">
             {data?.map((singleData) => (

@@ -9,7 +9,7 @@ const ServicesStyleOne = () => {
     <React.Fragment>
       <Navbar />
 
-      <Features />
+      <Features heading />
 
       <Services heading />
 

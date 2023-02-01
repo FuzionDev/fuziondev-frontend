@@ -1,12 +1,13 @@
 import React from "react";
+import services from "../../assets/images/services/services-7.jpg";
 
 const ServiceCard = ({ singleData }) => {
-  console.log(singleData);
+  console.log(services);
   return (
     <div className="col-lg-3 col-sm-6">
       <div className="single-services">
         <div className="services-img">
-          <img src="images\services\services-7.jpg" alt="Image" />
+          <img src={services?.src} alt="Image" />
         </div>
         <div className="services-content">
           <h3>

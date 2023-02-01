@@ -2,6 +2,7 @@ import React from "react";
 
 import ServiceCard from "../Cards/ServiceCard";
 import useFetch from "../hooks/useFetch";
+import Link from "next/link";
 
 const Services = ({ heading }) => {
   const { loading, error, data } = useFetch(

@@ -382,7 +382,7 @@ Read More Btn Area Style*/
 }
 
 .read-more:hover {
-  color: #e21f36;
+  color: white;
 }
 
 /*
@@ -1415,6 +1415,9 @@ Feature Area Style
 }
 
 .single-feature:hover .title h3 {
+  color: #ffffff;
+}
+.single-feature:hover a {
   color: #ffffff;
 }
 
