@@ -4,7 +4,7 @@ const OwlCarousel = dynamic(import("react-owl-carousel3"));
 import FeatureCard from "../Cards/FeatureCard";
 import useFetch from ".././hooks/useFetch";
 
-const Features = ({ id }) => {
+const Features = ({ id, heading }) => {
   const options = {
     loop: true,
     margin: 30,
@@ -40,6 +40,13 @@ const Features = ({ id }) => {
   return (
     <div className="feature-area feature-area-three">
       <div className="container">
+        {heading && (
+          <div className="section-title mt-5">
+            <h2>
+              You Can Protect Your Organization’s Cybersecurity By Services Us
+            </h2>
+          </div>
+        )}
         <div className="row">
           <OwlCarousel
             className="partner-slide owl-carousel owl-theme"
